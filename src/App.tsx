@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Header } from "./components/Header";
+import { InputGroup } from "./components/InputGroup";
+import { TodoList } from "./components/TodoList";
+
+import "./global.css";
+
+export type Task = {
+  id: number;
+  title: string;
+  isCompleted: boolean;
+};
 
 function App() {
+  const [title, setTitle] = useState("");
+  const [tasks, setTasks] = useState<Task[]>([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <InputGroup
+        title={title}
+        setTitle={setTitle}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
+
+      <TodoList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }
