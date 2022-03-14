@@ -17,7 +17,7 @@ export function TodoList() {
       }
     }
     loadTasks();
-  }, []);
+  }, [setTasks]);
 
   return (
     <div className="todoList">
@@ -32,7 +32,11 @@ export function TodoList() {
             }
           >
             <div>
-              <input type="checkbox" onChange={() => doneTask(task.id)} />
+              <input
+                type="checkbox"
+                checked={task.isCompleted}
+                onChange={() => doneTask(task.id)}
+              />
               {task.title}
             </div>
 
