@@ -1,35 +1,12 @@
-import { Task } from "../../App";
-
 import "./styles.scss";
 
 import { BiTrash } from "react-icons/bi";
 import { useEffect } from "react";
 
-interface TodoListProps {
-  tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-}
+import useTask from "../../hooks/useTask";
 
-export function TodoList({ tasks, setTasks }: TodoListProps) {
-  function deleteTask(id: number) {
-    const newTasks = tasks.filter((task) => task.id !== id);
-
-    const saveTask = JSON.stringify(newTasks);
-    localStorage.setItem("tasks", saveTask);
-
-    setTasks(newTasks);
-  }
-
-  function doneTask(id: number) {
-    const newTask = tasks.map((task) =>
-      task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
-    );
-
-    const saveTask = JSON.stringify(newTask);
-    localStorage.setItem("tasks", saveTask);
-
-    setTasks(newTask);
-  }
+export function TodoList() {
+  const { tasks, setTasks, deleteTask, doneTask } = useTask();
 
   useEffect(() => {
     function loadTasks() {

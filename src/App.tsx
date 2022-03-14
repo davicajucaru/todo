@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Header } from "./components/Header";
 import { InputGroup } from "./components/InputGroup";
 import { TodoList } from "./components/TodoList";
@@ -12,21 +11,13 @@ export type Task = {
 };
 
 function App() {
-  const [title, setTitle] = useState("");
-  const [tasks, setTasks] = useState<Task[]>([]);
-
   return (
     <div className="App">
       <Header />
 
-      <InputGroup
-        title={title}
-        setTitle={setTitle}
-        tasks={tasks}
-        setTasks={setTasks}
-      />
+      <InputGroup />
 
-      <TodoList tasks={tasks} setTasks={setTasks} />
+      <TodoList />
     </div>
   );
 }
