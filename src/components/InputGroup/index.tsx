@@ -18,6 +18,9 @@ export function InputGroup() {
         <button disabled={!title} onClick={() => createTask(title)}>
           <BiCheck size={25} color="white" />
         </button>
+        <button>
+          add
+        </button>
       </form>
     </div>
   );
