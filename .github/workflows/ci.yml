@@ -6,11 +6,7 @@ jobs:
   release:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@master
-        with:
-          node-version: "16.x"
-          registry-url: "https://npm.github.azc.ext.hp.com/"
       - run: yarn install
