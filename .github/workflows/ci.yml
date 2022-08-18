@@ -1,6 +1,7 @@
 on:
-  schedule:
-    - cron: '28 * * * *'
+   push:
+    branches:
+      - main
 jobs:
   release:
     runs-on: windows-latest
