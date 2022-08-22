@@ -15,11 +15,8 @@ export function InputGroup() {
           placeholder="Add your activity here"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button disabled={!title} onClick={() => createTask(title)}>
+        <button disabled={!title} title="button-input" onClick={() => createTask(title)}>
           <BiCheck size={25} color="white" />
-        </button>
-        <button>
-          add
         </button>
       </form>
     </div>
