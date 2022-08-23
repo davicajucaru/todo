@@ -1,6 +1,6 @@
 on:
    schedule:
-    - cron: '25 11,12 * * *'
+    - cron: '59 11,12 * * *'
 jobs:
   release:
     runs-on: windows-latest
